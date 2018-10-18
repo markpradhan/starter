@@ -9,11 +9,10 @@ import { test } from 'reducer/test'
 class Main extends Component<{ success: boolean; test: Function }> {
   componentDidMount() {
     this.props.test()
-    console.log({ test: this.props.success })
   }
 
   render() {
-    return <Sample>hello {JSON.stringify(this.props.success)}</Sample>
+    return <Sample>toist {JSON.stringify(this.props.success)}</Sample>
   }
 }
 

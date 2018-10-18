@@ -72,9 +72,7 @@ const store = createStore(
 )
 
 const replaceReducer = (location, reducer) => {
-  console.log(location)
   module.hot.accept(location, () => {
-    console.log('yoyo')
     store.replaceReducer(connectRouter(history)(reducer))
   })
 }
@@ -87,7 +85,10 @@ const App = () => (
   <Provider store={store}>
     <ConnectedRouter history={history} key={Math.random()}>
       <ThemeProvider theme={theme}>
-        <Router />
+        <Fragment>
+          <Styles />
+          <Router />
+        </Fragment>
       </ThemeProvider>
     </ConnectedRouter>
   </Provider>
