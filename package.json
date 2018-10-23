@@ -5,7 +5,7 @@
   "main": "src/index.tsx",
   "repository": "git@github.com:markpradhan/ui-starter.git",
   "author": "Mark Pradhan <mark.pradhan@gmail.com>",
-  "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "export NODE_ENV=development && nodemon --config nodemon.json --exec babel-node --presets @babel/preset-env -- ./dev.js",
     "test": "export NODE_ENV=testing && jest",
