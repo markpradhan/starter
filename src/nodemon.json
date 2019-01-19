@@ -1,0 +1,5 @@
+{
+  "verbose": true,
+  "ignore": ["*"],
+  "include": ["../.babelrc", "../package.json", "../webpack.config.js"]
+}

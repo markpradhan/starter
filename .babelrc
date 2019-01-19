@@ -54,6 +54,10 @@
         "@babel/preset-typescript"
       ],
       "plugins": ["lodash", "babel-plugin-inline-import"]
+    },
+    "server": {
+      "presets": ["@babel/preset-env", "@babel/preset-typescript"],
+      "plugins": ["lodash", "babel-plugin-inline-import"]
     }
   }
 }

@@ -10,11 +10,7 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 
 // Router
-import {
-  connectRouter,
-  routerMiddleware,
-  ConnectedRouter,
-} from 'connected-react-router'
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router'
 
 // Utils
 import { get } from 'lodash'
@@ -66,14 +62,11 @@ const composeEnhancers =
   (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 // Redux Store for application
-const store = createStore(
-  connectRouter(history)(reducer),
-  composeEnhancers(middleware),
-)
+const store = createStore(reducer(history), composeEnhancers(middleware))
 
 const replaceReducer = (location, reducer) => {
   module.hot.accept(location, () => {
-    store.replaceReducer(connectRouter(history)(reducer))
+    store.replaceReducer(reducer(history))
   })
 }
 
@@ -83,7 +76,7 @@ if (module.hot) {
 
 const App = () => (
   <Provider store={store}>
-    <ConnectedRouter history={history} key={Math.random()}>
+    <ConnectedRouter history={history} key="connected-router">
       <ThemeProvider theme={theme}>
         <Fragment>
           <Styles />
